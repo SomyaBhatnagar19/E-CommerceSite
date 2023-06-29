@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./Components/Layout/Header";
 import ProductList from "./Components/Products/ProductList";
+// import Cart from "./Components/Cart/Cart";
 
 const App = () => {
   const productsArr = [
@@ -32,8 +33,11 @@ const App = () => {
   ];
 
   return (
-    <div style={{backgroundColor:'#f2f2f2'}}>
+    <div style={{backgroundCoor:'#f2f2f2'}}>
+      <div>
+      {/* <Cart/> */}
       <Header />
+        </div>
       
       <h3 style={{textAlign:'center', marginTop: '2rem', fontFamily:'monospace', fontWeight:'bold'}}>Music</h3>
         {productsArr.map((product, id) => (

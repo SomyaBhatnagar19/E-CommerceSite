@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar, Nav, Container} from "react-bootstrap";
-
+import Cart from "../Cart/Cart";
 const Header = () => {
   return (
     <>
@@ -12,12 +12,12 @@ const Header = () => {
         }}
       >
         <Container>
-          <Navbar.Brand style={{fontWeight: 'bold', color : 'white'}}>The Generics</Navbar.Brand>
+          <Navbar.Brand style={{fontWeight: 'bold', color : 'white', fontSize: '3rem'}}>The Generics</Navbar.Brand>
           {/* <Navbar.Toggle aria-controls="basic-navbar-nav" /> */}
           <Navbar.Collapse id="basic-navbar-nav"></Navbar.Collapse>
-          <Nav className="me-auto">
+          <Nav className="me-auto" >
             <Nav.Link href="#home" style={{fontWeight: 'bold', color : 'white'}}>Home</Nav.Link>
-            <Nav.Link href="#link" style={{fontWeight: 'bold', color : 'white'}}>Link</Nav.Link>
+            <Cart />
             </Nav>
         </Container>
       </Navbar>
