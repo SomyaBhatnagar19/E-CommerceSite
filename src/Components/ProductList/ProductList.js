@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Card, Container, Button, Row, Col } from "react-bootstrap";
+import { CartContext } from "../Cart/CartContext";
 const ProductList = () => {
+  const { cartItems, setCartItems } = useContext(CartContext);
   //making an array of hard coded data given to us
   const productsArr = [
     {
@@ -31,6 +33,10 @@ const ProductList = () => {
         "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
     },
   ];
+
+  const addToCart = (item) => {
+    setCartItems([...cartItems, item]);
+  }
   return (
     <Container>
       <h4 style={{ textAlign: "center", margin: "1rem" }}>MUSIC</h4>
@@ -44,7 +50,7 @@ const ProductList = () => {
                 <Card.Body style={{ textAlign: "left" }}>
                   Rs. {item.price}
                 </Card.Body>
-                <Button>Add to Cart</Button>
+                <Button onClick={()=>addToCart(item)}>Add to Cart</Button>
               </Container>
             </Card>
           </Col>
