@@ -1,5 +1,6 @@
 import React from "react";
-import { Navbar, Container, Nav} from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
+import Cart from "../Cart/Cart";
 const Header = () => {
   return (
     <div>
@@ -9,7 +10,8 @@ const Header = () => {
             <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="#home">Home</Nav.Link>
                 <Nav.Link href="#about">About</Nav.Link>
-                <Nav.Link href="#cart">Cart</Nav.Link>
+                {/* Calling the cart component in the header file */}
+                <Cart/>
             </Nav>
         </Container>
       </Navbar>
