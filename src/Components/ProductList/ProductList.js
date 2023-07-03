@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Card, Container, Button, Row, Col } from "react-bootstrap";
 const ProductList = () => {
   //making an array of hard coded data given to us
   const productsArr = [
@@ -32,15 +32,25 @@ const ProductList = () => {
     },
   ];
   return (
-    <div>
-      <p>Product List</p>
-      {productsArr.map((item, id) => (
-        <div key={id}>
-          {item.title}, {item.price}
-          <img src={item.imageUrl} alt={item.title} />
-        </div>
-      ))}
-    </div>
+    <Container>
+      <h4 style={{ textAlign: "center", margin: "1rem" }}>MUSIC</h4>
+      <Row style={{marginTop: '1rem'}}>
+        {productsArr.map((item, id) => (
+          <Col sm={4} key={id}>
+            <Card>
+              <Container style={{ padding: "0.3rem" }}>
+                <Card.Img src={item.imageUrl} alt={item.title} />
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Body style={{ textAlign: "left" }}>
+                  Rs. {item.price}
+                </Card.Body>
+                <Button>Add to Cart</Button>
+              </Container>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 export default ProductList;
