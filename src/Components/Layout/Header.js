@@ -9,6 +9,7 @@ const Header = () => {
           <Navbar.Brand href="#home">The Generics</Navbar.Brand>
           <Nav className="justify-content-end flex-grow-1 pe-3">
             <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/Store">Store</Nav.Link>
             <Nav.Link href="/About">About</Nav.Link>
             <Cart />
           </Nav>

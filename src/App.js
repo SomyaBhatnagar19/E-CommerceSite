@@ -11,10 +11,11 @@ const App = () => {
       <Router>
         <Header />
         <Routes>
+        <Route path="/Store" element={<ProductList />}></Route>
           <Route path="/About" element={<AboutPage />}></Route>
         </Routes>
       </Router>
-      <ProductList />
+      {/* <ProductList /> */}
     </CartContextProvider>
   );
 };

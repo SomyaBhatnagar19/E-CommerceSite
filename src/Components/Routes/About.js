@@ -4,13 +4,14 @@ import AboutImage from "../Images/AboutImage.png";
 const AboutPage = () => {
   return (
     <div className="container">
-      <h1 className="text-center">ABOUT</h1>
+      <h1 className="text-center" style={{padding: '2rem'}}>ABOUT</h1>
       <div className="row">
         <div className="col-lg-4">
           <img
             src={AboutImage}
             alt="about-page-img"
             className="img-fluid rounded-circle"
+            style={{padding: '2rem'}}
           />
         </div>
         <div className="col-lg-8">
