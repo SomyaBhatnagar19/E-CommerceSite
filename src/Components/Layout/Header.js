@@ -6,9 +6,9 @@ const Header = () => {
     <div>
       <Navbar className="bg-dark" expand="lg" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">The Generics</Navbar.Brand>
+          <Navbar.Brand href="#home" style={{fontSize: '3rem'}}>The Generics</Navbar.Brand>
           <Nav className="justify-content-end flex-grow-1 pe-3">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/Home">Home</Nav.Link>
             <Nav.Link href="/Store">Store</Nav.Link>
             <Nav.Link href="/About">About</Nav.Link>
             <Cart />

@@ -4,6 +4,7 @@ import Header from "./Components/Layout/Header";
 import CartContextProvider from "./Components/Cart/CartContextProvider";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutPage from "./Components/Routes/About";
+import HomePage from "./Components/Routes/Home";
 
 const App = () => {
   return (
@@ -11,7 +12,8 @@ const App = () => {
       <Router>
         <Header />
         <Routes>
-        <Route path="/Store" element={<ProductList />}></Route>
+        <Route exact path="/Home" element={<HomePage />}></Route>
+          <Route path="/Store" element={<ProductList />}></Route>
           <Route path="/About" element={<AboutPage />}></Route>
         </Routes>
       </Router>
