@@ -2,11 +2,18 @@ import React from "react";
 import ProductList from "./Components/ProductList/ProductList";
 import Header from "./Components/Layout/Header";
 import CartContextProvider from "./Components/Cart/CartContextProvider";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AboutPage from "./Components/Routes/About";
 
 const App = () => {
   return (
     <CartContextProvider>
-      <Header />
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/About" element={<AboutPage />}></Route>
+        </Routes>
+      </Router>
       <ProductList />
     </CartContextProvider>
   );
