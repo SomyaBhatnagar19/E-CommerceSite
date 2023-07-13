@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { Card, Container } from "react-bootstrap";
+import { Image, Card, Container, Row, Col, Button } from "react-bootstrap";
+import "./ContactUs.css";
+import emailIcon from '../Images/email.png';
+import callIcon from '../Images/call.png';
+import mapIcon from '../Images/map.png';
 const ContactPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -16,7 +21,7 @@ const ContactPage = () => {
         "https://e-commerce-app-f11fb-default-rtdb.firebaseio.com/ContactUsData.json",
         {
           method: "POST",
-          body: JSON.stringify({ name, email, phone }),
+          body: JSON.stringify({ name, email, phone, message }),
           headers: {
             "Content-Type": "application/json",
           },
@@ -39,44 +44,77 @@ const ContactPage = () => {
 
   return (
     <Container className="contact-page">
-      <Card className="contact-details">
-        <h1>Contact Details</h1>
-        <p>Email: generics@gmail.com</p>
-        <p>Phone: 123-456-7890</p>
-        <p>Address: 123 ABC Street, XYZ City</p>
-      </Card>
-      <Card className="contact-form">
-        <h1>Contact Us</h1>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-          <label>
-            Email:
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <label>
-            Phone:
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </label>
-          <button type="submit" disabled={submitting}>
-            {submitting ? "Submitting..." : "Submit"}
-          </button>
-        </form>
-      </Card>
+      <Row>
+        <Col>
+          <Card className="contact-details">
+            <Card.Body>
+              <h1>Contact Details</h1>
+              <Image
+                src={emailIcon}
+                alt="email"
+                className="icon"
+              />
+              <p>Email: generics@gmail.com</p>
+              <Image
+                src={callIcon}
+                alt="call"
+                className="icon"
+              />
+              <p>Phone: 123-456-7890</p>
+              <Image
+                src={mapIcon}
+                alt="map"
+                className="icon"
+              />
+              <p>Address: 123 ABC Street, XYZ City</p>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card className="contact-form">
+            <Card.Body>
+              <h1>Contact Us</h1>
+              <form onSubmit={handleSubmit}>
+                <label>
+                  Name:
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Email:
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Phone:
+                  <input
+                    type="text"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </label>
+                <label>
+                  Message:
+                  <input
+                    type="text"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                  />
+                </label>
+                <Button type="submit" disabled={submitting}>
+                  {submitting ? "Submitting..." : "Submit"}
+                </Button>
+              </form>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     </Container>
   );
 };
