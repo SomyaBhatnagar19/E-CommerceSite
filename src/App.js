@@ -1,22 +1,55 @@
+// import React from "react";
+// import ProductList from "./Components/ProductList/ProductList";
+// import Header from "./Components/Layout/Header";
+// import CartContextProvider from "./Components/Cart/CartContextProvider";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import AboutPage from "./Components/Routes/About";
+// import HomePage from "./Components/Routes/Home";
+// // import Footer from "./Components/Layout/Footer";
+// import ContactUs from "./Components/Routes/ContactUs";
+// import ProductPage from './Components/Routes/ProductPage';
+// const App = () => {
+//   return (
+//     <CartContextProvider>
+//       <Router>
+//         <Header />
+//         <Routes>
+//           <Route path="/Home" element={<HomePage />} />
+//           <Route path="/Store" element={<ProductList />} />
+//           <Route path="/About" element={<AboutPage />} />
+//           <Route path="/ContactUs" element={<ContactUs />} />
+//           {/* <Route path="/products/:productId" element={<ProductPage />} /> */}
+//           <Route path="/:productId" element={<ProductPage />} />
+//         </Routes>
+//       </Router>
+//     </CartContextProvider>
+//   );
+// };
+
+
+// export default App;
+// App.js
 import React from "react";
-import ProductList from "./Components/ProductList/ProductList";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Layout/Header";
 import CartContextProvider from "./Components/Cart/CartContextProvider";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AboutPage from "./Components/Routes/About";
 import HomePage from "./Components/Routes/Home";
-// import Footer from "./Components/Layout/Footer";
+import AboutPage from "./Components/Routes/About";
 import ContactUs from "./Components/Routes/ContactUs";
+import ProductList from "./Components/ProductList/ProductList";
+import ProductPage from "./Components/Routes/ProductPage";
+
 const App = () => {
   return (
     <CartContextProvider>
       <Router>
         <Header />
         <Routes>
-        <Route path="/Home" element={<HomePage />}></Route>
-          <Route path="/Store" element={<ProductList />}></Route>
-          <Route path="/About" element={<AboutPage />}></Route>
-          <Route path='/ContactUs' element={<ContactUs />}></Route>
+          <Route path="/Home" element={<HomePage />} />
+          <Route path="/Store" element={<ProductList />} />
+          <Route path="/About" element={<AboutPage />} />
+          <Route path="/ContactUs" element={<ContactUs />} />
+          <Route path="/products/:productId" element={<ProductPage />} />
         </Routes>
       </Router>
     </CartContextProvider>

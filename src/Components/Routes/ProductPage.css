@@ -1,0 +1,98 @@
+.main-container-separateproducts {
+    padding: 20px;
+  }
+  
+  .product-title {
+    margin-top: 0;
+  }
+  
+  .product-details-container {
+    margin-top: 20px;
+  }
+  
+  .product-images-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:0.25rem;
+  }
+  
+  .image-sizes {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-sizes:hover {
+    transform: scale(1.1);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
+  .product-details-card {
+    padding: 20px;
+    height: 100%;
+    background-color: transparent;
+  }
+  
+  .product-description {
+    margin-bottom: 20px;
+  }
+  
+  .product-Devices-container {
+    margin-bottom: 20px;
+  }
+  
+  .product-Devices-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-size-item {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  .size-badge {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  
+  .product-reviews-container {
+    margin-bottom: 20px;
+  }
+  
+  .product-reviews-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-review-item {
+    margin-bottom: 5px;
+  }
+  
+  .product-bank-offers-container {
+    margin-bottom: 20px;
+  }
+  
+  .product-bank-offers-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-bank-offer-item {
+    margin-bottom: 5px;
+  }
+  
+  .add-to-cart-button {
+    width: 100%;
+  }
+  
