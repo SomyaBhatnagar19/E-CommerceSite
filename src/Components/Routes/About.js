@@ -1,6 +1,6 @@
 import React from "react";
 import AboutImage from "../Images/AboutImage.png";
-
+import './About.css';
 const AboutPage = () => {
   return (
     <div className="container">

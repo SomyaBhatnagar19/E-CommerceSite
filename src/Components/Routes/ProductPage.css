@@ -1,5 +1,6 @@
 .main-container-separateproducts {
     padding: 20px;
+    
   }
   
   .product-title {
@@ -15,6 +16,7 @@
     justify-content: space-between;
     align-items: center;
     margin:0.25rem;
+    
   }
   
   .image-sizes {
@@ -40,7 +42,6 @@
   .product-details-card {
     padding: 20px;
     height: 100%;
-    background-color: transparent;
   }
   
   .product-description {
@@ -95,4 +96,5 @@
   .add-to-cart-button {
     width: 100%;
   }
+  
   
