@@ -24,8 +24,8 @@ const LoginPage = () => {
 
     fetch(
       isLogin
-        ? "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=YOUR_FIREBASE_API_KEY"
-        : "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=YOUR_FIREBASE_API_KEY",
+        ? "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDbSqObcg_2-UGjILn68B2WoAj91HSoQBE"
+        : "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDbSqObcg_2-UGjILn68B2WoAj91HSoQBE",
       {
         method: "POST",
         headers: {

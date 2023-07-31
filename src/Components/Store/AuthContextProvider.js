@@ -1,7 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext({
   token: "",
+  isAuthenticated: false,
   login: (token) => {},
   logout: () => {}
 });
@@ -27,12 +28,30 @@ const AuthContextProvider = (props) => {
     localStorage.removeItem("token");
   };
 
-  const contextValue = {
-    token: responseToken || token,
-    login: loginHandler,
-    logout: logoutHandler
-  };
+  // const userIsAuthenticated = !!token;
 
+  // const contextValue = {
+  //   token: token,
+  //   isAuthenticated: userIsAuthenticated,
+  //   login: loginHandler,
+  //   logout: logoutHandler,
+  // };
+  useEffect(() => {
+    // Update the token state from localStorage when the component mounts
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
+
+  const userIsAuthenticated = !!token;
+
+  const contextValue = {
+    token: token,
+    isAuthenticated: userIsAuthenticated,
+    login: loginHandler,
+    logout: logoutHandler,
+  };
   return (
     <AuthContext.Provider value={contextValue}>
       {props.children}
