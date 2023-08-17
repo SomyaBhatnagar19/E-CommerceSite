@@ -20,6 +20,8 @@ const LoginPage = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
+    localStorage.setItem("email", enteredEmail);
+    localStorage.setItem("username", AuthCtx.username);
     const enteredPassword = passwordInputRef.current.value;
 
     fetch(
@@ -51,7 +53,7 @@ const LoginPage = () => {
           console.log(data);
           emailInputRef.current.value = "";
           passwordInputRef.current.value = "";
-          AuthCtx.login(data.idToken);
+          AuthCtx.loginHandler(data.idToken);
 
           if (isLogin) {
             alert("Login successful");
@@ -134,3 +136,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+

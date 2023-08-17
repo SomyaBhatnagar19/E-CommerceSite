@@ -4,6 +4,7 @@ import "./ContactUs.css";
 import emailIcon from '../Images/email.png';
 import callIcon from '../Images/call.png';
 import mapIcon from '../Images/map.png';
+import Footer from "../Layout/Footer";
 const ContactPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -115,6 +116,7 @@ const ContactPage = () => {
           </Card>
         </Col>
       </Row>
+      <Footer/>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import AboutImage from "../Images/AboutImage.png";
 import './About.css';
+import Footer from "../Layout/Footer";
 const AboutPage = () => {
   return (
     <div className="container">
@@ -40,6 +41,7 @@ const AboutPage = () => {
           </p>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

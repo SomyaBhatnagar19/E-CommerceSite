@@ -61,7 +61,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Layout/Header";
-import CartContextProvider from "./Components/Cart/CartContextProvider";
+// import CartContextProvider from "./Components/Cart/CartContextProvider";
 import HomePage from "./Components/Routes/Home";
 import AboutPage from "./Components/Routes/About";
 import ContactUs from "./Components/Routes/ContactUs";
@@ -69,11 +69,11 @@ import ProductList from "./Components/ProductList/ProductList";
 import ProductPage from "./Components/Routes/ProductPage";
 import LoginPage from "./Components/Routes/LoginPage";
 import AuthContextProvider from "./Components/Store/AuthContextProvider";
-import Footer from "./Components/Layout/Footer";
+// import Footer from "./Components/Layout/Footer";
 const App = () => {
   return (
     <AuthContextProvider>
-      <CartContextProvider>
+      {/* <CartContextProvider> */}
         <Router>
           <Header />
           <Routes>
@@ -82,12 +82,12 @@ const App = () => {
             <Route path="/Store" element={<ProductList />} />
             <Route path="/About" element={<AboutPage />} />
             <Route path="/ContactUs" element={<ContactUs />} />
-            <Route path="/products/:productId" element={<ProductPage />} />
+            <Route path="/:productId" element={<ProductPage />} />
             <Route path="/Login" element={<LoginPage />} />
           </Routes>
         </Router>
-        <Footer/>
-      </CartContextProvider>
+        {/* <Footer/> */}
+      {/* </CartContextProvider> */}
     </AuthContextProvider>
   );
 };
