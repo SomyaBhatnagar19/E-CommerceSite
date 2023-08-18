@@ -1,142 +1,5 @@
-// import React, { useState, useContext, useEffect } from "react";
-// import { Button, Modal, Row, Col } from "react-bootstrap";
-// // import { CartContext } from "../Cart/CartContext";
-// import AuthContext from '../Store/AuthContextProvider';
-// import axios from "axios";
-// const Cart = () => {
-//   const AuthCtx = useContext(AuthContext);
-//   const [showCart, setShowCart] = useState(false);
-//   const [buy, setBuy] = useState(false);
-
-//   const username = localStorage.getItem("username");
-
-//   useEffect(() => {
-//     fetchCartItems();
-//   }, []);
-
-//   const fetchCartItems = () => {
-//   axios
-//     .get(`https://crudcrud.com/api/fd45c4d4e5304b94a168de04d67a0e9c/${username}`)
-//     .then(response => {
-//       if (!response.data) {
-//         throw new Error("Network response was not ok");
-//       }
-
-//       // Consolidate cart items with the same title
-//       const cartItemsMap = new Map();
-//       response.data.forEach(item => {
-//         const product = item.product;
-//         if (cartItemsMap.has(product.title)) {
-//           cartItemsMap.get(product.title).quantity += 1;
-//         } else {
-//           cartItemsMap.set(product.title, { ...product, quantity: 1 });
-//         }
-//       });
-
-//       // Convert map values to an array of cart items
-//       AuthCtx.cartItems = Array.from(cartItemsMap.values());
-//       AuthCtx.setCartItems(AuthCtx.cartItems);
-//     })
-//     .catch(error => {
-//       console.error("Error fetching cart items:", error);
-//     });
-// };
-
-//   const handleClose = () => setShowCart(false);
-//   const handleShow = () => setShowCart(true);
-//   const buyNow = () => {
-//     setBuy(true);
-//     alert("Thank you for your purchase. Your products will arrive soon.");
-//   };
-
-//   const removeFromCart = (item) => {
-//     const updatedCartItems = [...cartItems];
-//     const index = updatedCartItems.findIndex(
-//       (cartItem) => cartItem.title === item.title
-//     );
-//     if (index !== -1) {
-//       if (updatedCartItems[index].quantity === 1) {
-//         updatedCartItems.splice(index, 1);
-//       } else {
-//         updatedCartItems[index].quantity -= 1;
-//       }
-//       setCartItems(updatedCartItems);
-//     }
-//   };
-
-//   const updateQuantity = (index, newQuantity) => {
-//     const updatedCartItems = [...cartItems];
-//     updatedCartItems[index].quantity = newQuantity;
-//     setCartItems(updatedCartItems);
-//   };
-
-//   const totalAmount = cartItems.reduce(
-//     (total, item) => total + item.price * item.quantity,
-//     0
-//   );
-
-//   return (
-//     <>
-//       <Button variant="primary" onClick={handleShow}>
-//         Cart
-//       </Button>
-
-//       <Modal size="lg" show={showCart} onHide={handleClose}>
-//         <Modal.Header closeButton>
-//           <Modal.Title>Cart Items</Modal.Title>
-//         </Modal.Header>
-//         <Modal.Body>
-//           {cartItems.length === 0 ? (
-//             <p>Cart Empty! Select items to add to cart.</p>
-//           ) : (
-//             <>
-//               {cartItems.map((item, index) => (
-//                 <Row style={{ padding: "1rem" }} key={index}>
-//                   <Col>
-//                     <img src={item.imageUrl} alt={item.title} />
-//                   </Col>
-//                   <Col>{item.title}</Col>
-//                   <Col>
-//                     Quantity:
-//                     <input
-//                       type="number"
-//                       value={item.quantity}
-//                       onChange={(e) =>
-//                         updateQuantity(index, parseInt(e.target.value))
-//                       }
-//                     />
-//                   </Col>
-//                   <Col>
-//                     Rs. {item.price * item.quantity}
-//                     <Row>
-//                       <Button onClick={() => removeFromCart(item)}>
-//                         Remove
-//                       </Button>
-//                     </Row>
-//                   </Col>
-//                 </Row>
-//               ))}
-//             </>
-//           )}
-//         </Modal.Body>
-//         <Modal.Footer>
-//           <p>Total Amount: Rs. {totalAmount}</p>
-//           <Button variant="secondary" onClick={handleClose}>
-//             Close
-//           </Button>
-//           <Button variant="primary" onClick={buyNow}>
-//             Buy
-//           </Button>
-//         </Modal.Footer>
-//       </Modal>
-//     </>
-//   );
-// };
-
-// export default Cart;
-
 import React, { useContext,useEffect} from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button, Container,Modal } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
 import { Card } from "react-bootstrap";
 import './Cart.css';
@@ -153,7 +16,7 @@ const Cart = () => {
 
   const fetchCartItems = () => {
   axios
-    .get(`https://crudcrud.com/api/fd45c4d4e5304b94a168de04d67a0e9c/${username}`)
+    .get(`https://crudcrud.com/api/6c296ff867fc4bd1a1b1f663a4736270/${username}`)
     .then(response => {
       if (!response.data) {
         throw new Error("Network response was not ok");
@@ -195,7 +58,7 @@ const Cart = () => {
     }
 
     const totalPrice = cartCtx.cartData.reduce(
-    (total, item) => total + item.price * item.quantity, // Multiply price by quantity
+    (total, item) => total + item.price * item.quantity, 
     0
   );
       
@@ -209,6 +72,10 @@ const Cart = () => {
       cartCtx.updateQuantity(title, newQuantity);
     };
 
+    const buyNowHandler = () => {
+          alert('Thank you for your purchase. Items will reach you soon.');
+   };
+
     return (
       <div className="cart-products">
         {cartCtx.cartData.map((item, index) => (
@@ -221,37 +88,54 @@ const Cart = () => {
               <Col xs={6} md={4} lg={4}>
                 <p className="item-price">${item.price}</p>
               </Col>
-              <Col xs={12} md={4} lg={4}>
+                <Col xs={12} md={4} lg={4}>
+                <div style={{ display: 'flex', gap: '4px' }}>
                 <input
                   type="number"
                   value={item.quantity}
                   className="input-box"
                   onChange={(event) => handleQuantityChange(event, item.title)}
                 />
-                <Button
-                  className="btn-danger remove-btn"
-                  onClick={() => handleRemoveItem(item.title)}
-                >
-                  Remove
-                </Button>
+                
+                  <Button
+                    variant="danger"
+                    onClick={() => handleRemoveItem(item.title)}
+                  >
+                    -
+                  </Button>
+                  <Button
+                    variant="info"
+                    // onClick={() => handleRemoveItem(item.title)}
+                  >
+                    +
+                  </Button>
+                  </div>
               </Col>
             </Row>
           </div>
+          
         ))}
-        <Row>
-          <h4 className="total-price">Total Price: ${totalPrice}</h4>
-        </Row>
+        <Modal.Footer>
+          <h4 className="total-price" >Total Price: Rs.{totalPrice}</h4>
+          <div style={{display: 'flex', gap: '4px'}}>
+          <Button variant="secondary" onClick={cartCtx.handleCartClose}>Close Cart</Button>
+          <Button variant="success" onClick={buyNowHandler}>Buy Now</Button>
+          </div>
+          
+        </Modal.Footer>
       </div>
     );
   };
 
   return (
-    <div className="d-flex justify-content-end vh-100 cart-align">
-      <Card className="cart-card">
-        <Container>
-          <Button className="close-btn btn-dark" onClick={cartCtx.handleCartClose}>X</Button>
-          <h1 className="cart-heading">Cart</h1>
-        </Container>
+    <div className="modal show"
+    style={{ display: 'block', position: 'fixed', backdrop: 'true' }}>
+      <Modal.Dialog className="cart-card">
+        {/* <Container> */}
+        <Modal.Header closeButton onClick={cartCtx.handleCartClose}>
+          <Modal.Title className="cart-heading">Cart</Modal.Title>
+          </Modal.Header>
+        {/* </Container> */}
         <Container>
           <Row className="cart-details">
             <Col xs={12} md={4} lg={4}>Item</Col>
@@ -260,9 +144,10 @@ const Cart = () => {
           </Row>
         </Container>
         <CartProducts />
-      </Card>
+      </Modal.Dialog>
     </div>
   );
 };
 
 export default Cart;
+

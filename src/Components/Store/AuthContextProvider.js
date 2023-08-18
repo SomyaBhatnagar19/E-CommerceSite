@@ -149,7 +149,7 @@ const AuthContextProvider = (props) => {
 
   const username = userEmail ? extractUsernameFromEmail(userEmail) : "";
 
-  const url = `https://crudcrud.com/api/fd45c4d4e5304b94a168de04d67a0e9c/${username}`;
+  const url = `https://crudcrud.com/api/6c296ff867fc4bd1a1b1f663a4736270/${username}`;
 
   const addToCart = (item) => {
     const existingProduct = cartData.find(
