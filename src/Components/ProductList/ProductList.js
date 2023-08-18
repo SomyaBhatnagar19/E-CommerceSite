@@ -64,7 +64,7 @@
 // export default ProductList;
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button, Card } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import { AuthContext } from "../Store/AuthContextProvider";
 import { Alert } from "react-bootstrap";
@@ -115,42 +115,74 @@ const Products = () => {
 
   return (
     <Container>
-      <h1 className="product-heading">Music</h1>
-      {showSuccessMessage && (
-        <Alert variant="success" onClose={() => setShowSuccessMessage(false)} dismissible>
-          Your Item has been added to the cart successfully!
-        </Alert>
-      )}
-      <Row>
-        {productsArr.map((product) => (
-          <Col key={product.id} className="product-container" xs={12} md={6} lg={6}>
-            <Link to={`/${product.id}`}>
-              <img src={product.imageUrl} alt={product.title} className="product-image" />
-            </Link>
-            <Row>
-              <Col xs={12} md={12} lg={12}>
-                <h5 className="product-price">Price: Rs. {product.price}</h5>
-              </Col>
-              <Col xs={12} md={12} lg={12}>
-                <div className="d-grid">
-                  <Button
-                    className="product-button"
-                    size="lg"
-                    variant="outline-success"
-                    onClick={() => {
-                      authCtx.addToCart(product);
-                      setShowSuccessMessage(true);
-                    }}
-                  >
-                    Add to cart
-                  </Button>
-                </div>
-              </Col>
-            </Row>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <h4 style={{ textAlign: "center", margin: "1rem" }}>MUSIC</h4>
+    {showSuccessMessage && (
+      <Alert variant="success" onClose={() => setShowSuccessMessage(false)} dismissible>
+        Your Item has been added to the cart successfully!
+      </Alert>
+    )}
+    <Row className="g-4">
+      {productsArr.map((item) => (
+        <Col sm={4} key={item.id}>
+          <Card>
+            <Container style={{ padding: "0.3rem" }}>
+              <Card.Img src={item.imageUrl} alt={item.title} />
+              <Card.Title>{item.title}</Card.Title>
+              <Card.Body style={{ textAlign: "left" }}>
+                Rs. {item.price}
+              </Card.Body>
+              <Link to={`/products/${item.id}`}>
+                <Button style={{ backgroundColor: "purple", float: "left", marginLeft: "0.5rem" }}>View Details</Button>
+              </Link>
+              <Button style={{ float: "right", marginRight: "0.5rem" }} onClick={() => {
+                  authCtx.addToCart(item);
+                  setShowSuccessMessage(true);
+                }}>
+                Add to Cart
+              </Button>
+            </Container>
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  </Container>
+    // <Container>
+    //   <h1 className="product-heading">Music</h1>
+    //   {showSuccessMessage && (
+    //     <Alert variant="success" onClose={() => setShowSuccessMessage(false)} dismissible>
+    //       Your Item has been added to the cart successfully!
+    //     </Alert>
+    //   )}
+    //   <Row>
+    //     {productsArr.map((product) => (
+    //       <Col key={product.id} className="product-container" xs={12} md={6} lg={6}>
+    //         <Link to={`/${product.id}`}>
+    //           <img src={product.imageUrl} alt={product.title} className="product-image" />
+    //         </Link>
+    //         <Row>
+    //           <Col xs={12} md={12} lg={12}>
+    //             <h5 className="product-price">Price: Rs. {product.price}</h5>
+    //           </Col>
+    //           <Col xs={12} md={12} lg={12}>
+    //             <div className="d-grid">
+    //               <Button
+    //                 className="product-button"
+    //                 size="lg"
+    //                 variant="outline-success"
+    //                 onClick={() => {
+    //                   authCtx.addToCart(product);
+    //                   setShowSuccessMessage(true);
+    //                 }}
+    //               >
+    //                 Add to cart
+    //               </Button>
+    //             </div>
+    //           </Col>
+    //         </Row>
+    //       </Col>
+    //     ))}
+    //   </Row>
+    // </Container>
   );
 };
 

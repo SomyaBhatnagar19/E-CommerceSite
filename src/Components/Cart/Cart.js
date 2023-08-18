@@ -16,7 +16,7 @@ const Cart = () => {
 
   const fetchCartItems = () => {
   axios
-    .get(`https://crudcrud.com/api/6c296ff867fc4bd1a1b1f663a4736270/${username}`)
+    .get(`https://crudcrud.com/api/9a8eac71227c47a0a750e0a348efd5c5/${username}`)
     .then(response => {
       if (!response.data) {
         throw new Error("Network response was not ok");
