@@ -86,7 +86,7 @@ const Cart = () => {
                 <p className="item-title">{item.title}</p>
               </Col>
               <Col xs={6} md={4} lg={4}>
-                <p className="item-price">${item.price}</p>
+                <p className="item-price">Rs. {item.price}</p>
               </Col>
                 <Col xs={12} md={4} lg={4}>
                 <div style={{ display: 'flex', gap: '4px' }}>

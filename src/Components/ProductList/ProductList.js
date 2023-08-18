@@ -78,7 +78,7 @@ const Products = () => {
     {
       id: 1,
       title: 'Album 1',
-      price: 90,
+      price: 100,
       imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%201.png',
     },
     {
@@ -129,7 +129,7 @@ const Products = () => {
             </Link>
             <Row>
               <Col xs={12} md={12} lg={12}>
-                <h5 className="product-price">Price: ${product.price}</h5>
+                <h5 className="product-price">Price: Rs. {product.price}</h5>
               </Col>
               <Col xs={12} md={12} lg={12}>
                 <div className="d-grid">
