@@ -1,4 +1,4 @@
-/* .footer {
+/* /* .footer {
   position: relative !important;
   bottom: 0;
   width: 100%;
@@ -33,8 +33,8 @@
   margin: 0 10px;
 } */
 /* Footer Styles */
-.footer {
-  background-color: #333;
+/* .footer {
+  background-color: #5d5c5c;
   color: white;
   padding: 1rem 0;
   position: relative;
@@ -42,14 +42,14 @@
   overflow-x: hidden !important;
    /* z-index: 999;  */
   
-}
 
-.footer-content {
+
+/* .footer-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px; /* Set a max-width to center content */
-  margin: 0 auto; /* Center content horizontally */
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 .footer-left {
@@ -71,7 +71,7 @@
   opacity: 0.7;
 }
 
-/* Media Queries for Responsiveness */
+
 @media (max-width: 768px) {
   .footer {
     padding: 0.5rem 0;
@@ -93,4 +93,37 @@
   .icon {
     margin: 5px;
   }
+}  */
+/* Footer CSS */
+
+/* Footer CSS */
+
+.footer {
+  background-color: #535353;
+  color: white;
+  padding: 20px 0;
+  position: relative; /* Change to relative */
+  width: 100%;
+}
+
+.footer-icon {
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+  transition: transform 0.3s ease-in-out;
+  margin: 0 10px;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Copyright text */
+.footer .copyright {
+  text-align: center;
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

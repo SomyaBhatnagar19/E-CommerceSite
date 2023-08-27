@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Image, ListGroup, Row, Container } from "react-bootstrap";
 import play from "../Images/play.png";
-
+import Footer from "../Layout/Footer";
 const HomePage = () => {
   return (
     <>
@@ -132,6 +132,9 @@ const HomePage = () => {
           </ListGroup.Item>
         </Container>
       </ListGroup>
+      <div style={{marginTop: '1rem'}}>
+                <Footer/>
+  </div>
     </>
   );
 };

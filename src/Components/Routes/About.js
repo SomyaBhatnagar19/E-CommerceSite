@@ -4,6 +4,7 @@ import './About.css';
 import Footer from "../Layout/Footer";
 const AboutPage = () => {
   return (
+    <>
     <div className="container">
       <h1 className="text-center" style={{padding: '2rem'}}>ABOUT</h1>
       <div className="row">
@@ -40,9 +41,14 @@ const AboutPage = () => {
             condemn, we are accusing him? Him whom something large cisterns.
           </p>
         </div>
-      </div>
-      <Footer/>
+      </div >
+      
+      
     </div>
+    <div style={{marginTop: '1rem'}}>
+      <Footer/>
+      </div>
+    </>
   );
 };
 

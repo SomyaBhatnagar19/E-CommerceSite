@@ -44,6 +44,7 @@ const ContactPage = () => {
   };
 
   return (
+    <>
     <Container className="contact-page">
       <Row>
         <Col>
@@ -116,8 +117,12 @@ const ContactPage = () => {
           </Card>
         </Col>
       </Row>
-      <Footer/>
+      
     </Container>
+    <div style={{marginTop: '1rem'}}>
+    <Footer/>
+    </div>
+    </>
   );
 };
 
