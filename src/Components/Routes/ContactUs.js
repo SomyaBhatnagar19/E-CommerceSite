@@ -62,7 +62,7 @@ const ContactPage = () => {
                 alt="call"
                 className="icon"
               />
-              <p>Phone: 123-456-7890</p>
+              <p>Phone: +91-9876543210</p>
               <Image
                 src={mapIcon}
                 alt="map"

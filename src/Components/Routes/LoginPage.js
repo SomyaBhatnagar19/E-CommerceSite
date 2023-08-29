@@ -3,11 +3,13 @@ import { Container, Card, Form, Button, Image } from "react-bootstrap";
 import { AuthContext } from "../Store/AuthContextProvider";
 import "./LoginPage.css";
 import loginBackground from "../Images/loginBackground.jpg";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const AuthCtx = useContext(AuthContext);
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const navigate = useNavigate();
 
   const [isLogin, setIsLogin] = useState(false);
   const [isExistingUser, setIsExistingUser] = useState(false);
@@ -18,10 +20,14 @@ const LoginPage = () => {
   };
 
   const submitHandler = (event) => {
+
     event.preventDefault();
     const enteredEmail = emailInputRef.current.value;
+  
     localStorage.setItem("email", enteredEmail);
     localStorage.setItem("username", AuthCtx.username);
+  
+ 
     const enteredPassword = passwordInputRef.current.value;
 
     fetch(
@@ -53,10 +59,13 @@ const LoginPage = () => {
           console.log(data);
           emailInputRef.current.value = "";
           passwordInputRef.current.value = "";
-          AuthCtx.loginHandler(data.idToken);
+        console.log("Before loginHandler");
+         AuthCtx.loginHandler(data.idToken, enteredEmail); // Pass enteredEmail to loginHandler
+        console.log("After loginHandler");
 
           if (isLogin) {
             alert("Login successful");
+            navigate("/Store");
             setIsLogin(false);
           } else {
             if (data.error && data.error.message === "EMAIL_EXISTS") {
@@ -109,8 +118,8 @@ const LoginPage = () => {
                   />
                 </Form.Group>
                 {isLogin || isExistingUser ? (
-                  <Button type="submit" className="button">
-                    Log In
+                  <Button type="submit" className="button"> 
+                    Log In 
                   </Button>
                 ) : (
                   <Button type="submit" className="button">
