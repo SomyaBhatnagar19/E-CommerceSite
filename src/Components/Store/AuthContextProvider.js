@@ -107,6 +107,24 @@ const AuthContextProvider = (props) => {
     setCartToggle(false); 
   };
 
+  const removeItemFromCart = async (itemTitle) => {
+    const updatedCartItems = cartItems.filter(
+      (product) => product.title !== itemTitle
+    );
+  
+    // Update the cart items in the state
+    setCartItems(updatedCartItems);
+  
+    try {
+      await axios.delete(
+        `https://crudcrud.com/api/b6abe1c3c4ce430e878be72bcdfa85dc/${username}/${itemTitle}`
+      );
+  
+      console.log("Item removed from cart:", itemTitle);
+    } catch (error) {
+      console.log("Error removing item from cart:", error);
+    }
+  };
   const userIsAuthenticated = !!token;
 
   const contextValue = {
@@ -122,6 +140,7 @@ const AuthContextProvider = (props) => {
     cartDisplayHandler: () => setCartToggle((prevToggle) => !prevToggle), // Add cartDisplayHandler function
     cartToggle: cartToggle, // Add cartToggle value
     handleCartClose,
+    removeItemFromCart: removeItemFromCart,
   };
 
   return (

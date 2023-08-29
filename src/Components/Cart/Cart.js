@@ -63,12 +63,7 @@ const CartProducts = () => {
     0
   );
       
-    
-    const handleRemoveItem = (title) => {
-      cartCtx.removeFromCart(title);
-    };
-
-    const handleQuantityChange = (event, title) => {
+      const handleQuantityChange = (event, title) => {
       const newQuantity = parseInt(event.target.value);
       cartCtx.updateQuantity(title, newQuantity);
     };
@@ -100,13 +95,13 @@ const CartProducts = () => {
                 
                   <Button
                     variant="danger"
-                    onClick={() => handleRemoveItem(item.title)}
+                    onClick={() => cartCtx.removeItemFromCart(item.title)}
                   >
                     -
                   </Button>
                   <Button
                     variant="info"
-                    // onClick={() => cartCtx.addToCart(item.title)}
+                    onClick={() => cartCtx.addToCart(item)}
                   >
                     +
                   </Button>

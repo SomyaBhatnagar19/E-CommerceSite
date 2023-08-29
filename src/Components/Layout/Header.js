@@ -66,9 +66,9 @@ const handleStoreClick = () => {
               )}
             </Nav>
             <Button onClick={AuthCtx.cartDisplayHandler}>Cart</Button>
-            <Badge style={{display: "flex", backgroundColor: "green", borderRadius: "3rem"}}>
-            {AuthCtx.cartItems.length}
-        </Badge>
+            <Badge pill bg="success" className="ms-2">
+                {AuthCtx.cartItems.length}
+              </Badge>
           </Navbar.Collapse>
         </Container>
       </Navbar>
